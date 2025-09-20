@@ -11,7 +11,7 @@ def index():
     except Exception:
         # graceful fallback if redis not available
         count = 0
-    return f'Hello — this page has been viewed {int(count)} times.\n'
+    return f'Hello — My Nmae is Vijay {int(count)} times.\n'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
