@@ -1,16 +1,10 @@
-FROM python:3.11-slim
+```
+# Use official Apache HTTP Server image
+FROM httpd
 
-WORKDIR /app
+# Copy your website files to the default Apache html folder
+COPY ./ /usr/local/apache2/htdocs/
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
- && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["python", "app.py"]
+# Expose port 80 for HTTP traffic
+EXPOSE 80
+```
